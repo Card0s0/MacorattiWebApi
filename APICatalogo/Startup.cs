@@ -29,9 +29,7 @@ namespace APICatalogo
         public void ConfigureServices(IServiceCollection services)
         {
             string mySqlConnection = Configuration.GetConnectionString("DefaultConnection");
-
-            services.AddDbContext<AppDbContext>(options => options.UseMySql(
-                mySqlConnection,ServerVersion.AutoDetect(mySqlConnection)));
+            services.AddDbContext<AppDbContext>(options => options.UseMySql(mySqlConnection,ServerVersion.AutoDetect(mySqlConnection)));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
